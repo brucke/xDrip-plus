@@ -1,16 +1,42 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_DIABETES",
+      "label": "Diabetes",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "influxdb",
+      "pluginName": "InfluxDB"
+    }
+  ],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "4.1.1"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "influxdb",
+      "name": "InfluxDB",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "singlestat",
+      "name": "Singlestat",
+      "version": ""
+    }
+  ],
   "annotations": {
-    "list": [
-      {
-        "builtIn": 1,
-        "datasource": "-- Grafana --",
-        "enable": true,
-        "hide": true,
-        "iconColor": "rgba(0, 211, 255, 1)",
-        "name": "Annotations & Alerts",
-        "type": "dashboard"
-      }
-    ]
+    "list": []
   },
   "editable": true,
   "gnetId": null,
@@ -46,12 +72,12 @@
             "type": "query"
           }
         ],
-        "executionErrorState": "alerting",
+        "executionErrorState": "keep_state",
         "for": "0m",
         "frequency": "30m",
         "handler": 1,
         "name": "Glucose alert",
-        "noDataState": "no_data",
+        "noDataState": "keep_state",
         "notifications": []
       },
       "aliasColors": {
@@ -62,7 +88,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "xdrip",
+      "datasource": "${DS_DIABETES}",
       "decimals": 1,
       "fill": 2,
       "gridPos": {
@@ -209,12 +235,12 @@
     {
       "aliasColors": {
         "glucose delta": "#BA43A9",
-        "Δ mmol/l": "#BA43A9"
+        "Δ mg/dl": "#BA43A9"
       },
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "xdrip",
+      "datasource": "${DS_DIABETES}",
       "decimals": 2,
       "fill": 2,
       "gridPos": {
@@ -278,7 +304,7 @@
             [
               {
                 "params": [
-                  "value_mmol"
+                  "value_mgdl"
                 ],
                 "type": "field"
               },
@@ -343,7 +369,7 @@
       "bars": true,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "xdrip",
+      "datasource": "${DS_DIABETES}",
       "fill": 1,
       "gridPos": {
         "h": 10,
@@ -463,7 +489,7 @@
         "rgb(174, 149, 38)",
         "rgba(240, 71, 71, 0.86)"
       ],
-      "datasource": "xdrip",
+      "datasource": "${DS_DIABETES}",
       "decimals": 1,
       "format": "none",
       "gauge": {
@@ -575,7 +601,7 @@
     },
     {
       "columns": [],
-      "datasource": "xdrip",
+      "datasource": "${DS_DIABETES}",
       "fontSize": "100%",
       "gridPos": {
         "h": 15,
@@ -648,7 +674,7 @@
       "bars": false,
       "bucketMode": "size",
       "bucketSize": "1",
-      "datasource": "xdrip",
+      "datasource": "${DS_DIABETES}",
       "decimals": 1,
       "fill": 1,
       "grid": {
@@ -712,7 +738,7 @@
             [
               {
                 "params": [
-                  "value_mmol"
+                  "value_mgdl"
                 ],
                 "type": "field"
               },
